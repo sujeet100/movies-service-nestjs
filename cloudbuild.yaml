@@ -1,14 +1,21 @@
 steps:
   # npm install
-  - name: 'gcr.io/cloud-builders/npm'
+  - id: npm install
+    name: 'gcr.io/cloud-builders/npm'
     args: ['install']
 
+  # run build
+  - id: build
+    name: 'gcr.io/cloud-builders/npm'
+    args: ['run', 'build']
   # run tests
-  - name: 'gcr.io/cloud-builders/npm'
+  - id: test
+    name: 'gcr.io/cloud-builders/npm'
     args: ['run', 'test']
     
   # Build movies-service-nestjs image
-  - name: gcr.io/cloud_builders/docker
+  - id: build docker image
+    name: gcr.io/cloud_builders/docker
     args:
       - build
       - -t
@@ -16,13 +23,15 @@ steps:
       - .
 
   # Push movies-service-nestjs image to Google Cloud Registry
-  - name: gcr.io/cloud-builders/docker
+  - id: push docker image
+    name: gcr.io/cloud-builders/docker
     args:
       - push
       - gcr.io/$PROJECT_ID/movies-service-nestjs:$COMMIT_SHA
 
   # Configure a kubectl workspace for this project
-  - name: gcr.io/cloud-builders/kubectl
+  - id: configure kubectl
+    name: gcr.io/cloud-builders/kubectl
     args:
       - cluster-info
     env:
