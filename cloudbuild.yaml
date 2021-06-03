@@ -1,4 +1,12 @@
 steps:
+  # npm install
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['install']
+
+  # run tests
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['run', 'test']
+    
   # Build movies-service-nestjs image
   - name: gcr.io/cloud_builders/docker
     args:
