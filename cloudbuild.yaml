@@ -18,8 +18,8 @@ steps:
     args:
       - cluster-info
     env:
-      - CLOUDSDK_COMPUTE_REGION=$_CUSTOM_REGION
-      - CLOUDSDK_CONTAINER_CLUSTER=$_CUSTOM_CLUSTER
+      - CLOUDSDK_COMPUTE_REGION=us-central1-c
+      - CLOUDSDK_CONTAINER_CLUSTER=my-first-cluster-1
       - KUBECONFIG=/workspace/.kube/config
   - id: kustomize
     name: 'gcr.io/$PROJECT_ID/kustomize'
