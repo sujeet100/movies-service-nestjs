@@ -8,10 +8,14 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { join } from 'path';
 
 @Module({
-  imports: [MoviesModule, TypeOrmModule.forRoot(config), GraphQLModule.forRoot({
-    autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
-    sortSchema: true,
-  })],
+  imports: [
+    MoviesModule,
+    TypeOrmModule.forRoot(config),
+    GraphQLModule.forRoot({
+      autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+      sortSchema: true,
+    }),
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
