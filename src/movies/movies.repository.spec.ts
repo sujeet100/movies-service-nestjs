@@ -30,12 +30,14 @@ describe('MoviesRepository', () => {
         imageUrl: 'http://foo.com',
         name: 'Batman',
         year: 2020,
+        rating: 8,
       };
       const joker = {
         id: 2,
         imageUrl: 'http://bar.com',
         name: 'Joker',
         year: 2021,
+        rating: 9,
       };
 
       await repository.save(batman);

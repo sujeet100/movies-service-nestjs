@@ -1,0 +1,32 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Movie {
+  id: Int!
+
+  """Image Url"""
+  imageUrl: String!
+
+  """Name of the movie"""
+  name: String!
+
+  """Rating of the movie"""
+  rating: Float!
+
+  """Year of release"""
+  year: Float!
+}
+
+type Mutation {
+  updateRating(updateRatingInput: updateRatingInput!): Movie!
+}
+
+type Query {
+  movie(id: Int!): Movie!
+}
+
+input updateRatingInput {
+  id: Float!
+  rating: Float!
+}

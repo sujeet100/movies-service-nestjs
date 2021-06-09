@@ -13,4 +13,7 @@ export class MovieEntity {
 
   @Column({ name: 'imageUrl' })
   imageUrl: string;
+
+  @Column()
+  rating: number;
 }
